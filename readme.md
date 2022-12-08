@@ -29,6 +29,8 @@
         - Edit/Add student score as per sessionals(all three)
         - Check Marks of all students
 
+- Announcement Section (On Home Page)
+
 ## Requirement Analysis
 - Database
     - SQL
