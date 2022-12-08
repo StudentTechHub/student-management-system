@@ -28,3 +28,29 @@
         - Upload .csv(Excel) file  _Extra Advanced_
         - Edit/Add student score as per sessionals(all three)
         - Check Marks of all students
+
+## Requirement Analysis
+- Database
+    - SQL
+    - PostegreSQL
+
+- BackEnd
+    - PHP
+
+- FrontEnd
+    - JavaScript
+    - HTML & CSS
+
+- Team
+    - Love 
+    - Neeraj 
+    - Amrit 
+    - Rajesh 
+
+- Graphics
+    - Icons (https://flaticon.com)
+        - Glassy in Figma
+        - UserIcon Inside and Circle in Shape 
+        - 
+    - Design (https://figma.com/@csesms)
+
