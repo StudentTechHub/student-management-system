@@ -31,12 +31,11 @@
 
 - Announcement Section (On Home Page)
 
-+-----------+-----------+-----------+-----------+
-| All | Important  | Upcoming |  |
-+-----------+-----------+-----------+-----------+
-| |
-| |
-+-+
+
+| All | Important  | Upcoming |
+| --- | --- | --- | 
+| | | |
+
     - Important News
     - Upcoming Events
     - Important Dates
