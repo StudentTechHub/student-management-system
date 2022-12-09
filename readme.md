@@ -30,6 +30,15 @@
         - Check Marks of all students
 
 - Announcement Section (On Home Page)
+    - Important News
+    - Upcoming Events
+    - Important Dates
+    - Exam Schedule
+    
+    - For Teachers
+        - Add/Remove Announcement
+        - Edit Announcement
+        -
 
 ## Requirement Analysis
 - Database
