@@ -30,6 +30,13 @@
         - Check Marks of all students
 
 - Announcement Section (On Home Page)
+
++-----------+-----------+-----------+-----------+
+| All | Important  | Upcoming |  |
++-----------+-----------+-----------+-----------+
+| |
+| |
++-+
     - Important News
     - Upcoming Events
     - Important Dates
@@ -64,4 +71,3 @@
         - UserIcon Inside and Circle in Shape 
         - 
     - Design (https://figma.com/@csesms)
-
