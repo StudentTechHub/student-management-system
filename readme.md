@@ -30,12 +30,6 @@
         - Check Marks of all students
 
 - Announcement Section (On Home Page)
-
-
-| All | Important  | Upcoming |
-| --- | --- | --- | 
-| | | |
-
     - Important News
     - Upcoming Events
     - Important Dates
@@ -45,6 +39,9 @@
         - Add/Remove Announcement
         - Edit Announcement
         -
+| **All** | Important  | Upcoming |
+| --- | --- | --- | 
+|      |
 
 ## Requirement Analysis
 - Database
