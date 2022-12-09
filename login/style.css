@@ -1,0 +1,151 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background: linear-gradient(252.92deg, #00DCEF 0.55%, #0284C4 38.36%, #0273BC 49.71%, #2285C5 61%, #D7E9F8 98.86%);
+    backdrop-filter: blur(60px);
+}
+.content{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    
+}
+.back{
+    height: 100vh;
+    float: right;
+}
+.back img{
+    height: 100%;
+}
+
+/* Teacher */
+.teacher{
+    cursor: pointer;
+    position: absolute;
+    width: 404.95px;
+    height: 444.3px;
+    top:60px;
+    left: 100px;
+    transition: 0.4s;
+    /* backdrop-filter: blur(15px); */
+}
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Rectangle 1 */
+.rectangle1{
+    position: absolute;
+    width: 404.95px;
+    height: 444.3px;
+    top:60px;
+    left: 100px;
+    background: rgba(171, 255, 227, 0.66);
+    box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
+    border-radius: 76px;
+}
+
+
+/* Ellipse 15 */
+.ellipse15{
+
+    position: absolute;
+    width: 307.1px;
+    height: 307.1px;
+    left: 50px;
+    top: 0;
+    scale: 0.7;
+    background: url(Ellipse15.svg);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+}
+
+
+/* Teacher */
+.teacher-text{
+
+    position: absolute;
+    width: 360px;
+    height: 74px;
+    left: -20px;
+    top: 391px;
+    
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 81px;
+    text-align: center;
+    
+    color: #FFFFFF;
+    
+}   
+
+    
+
+/* Student */
+.student{
+   
+    position: absolute;
+    width: 404.95px;
+    height: 444.3px;
+    top:60px;
+    right: 100px;
+    transition: 0.4s;
+}
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Rectangle 1 */
+.rectangle2{
+
+    position: absolute;
+    width: 404.95px;
+    height: 444.3px;
+    top:60px;
+    right: 100px;
+    background: rgba(220, 236, 255, 0.69);
+    box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
+    border-radius: 76px;
+}
+
+
+/* Ellipse 15 */
+.ellipse15-2{
+
+    position: absolute;
+    width: 307.1px;
+    height: 307.1px;
+    left: 50px;
+    top: 0;
+    scale: 0.7;
+    background: url(Ellipse15-2.svg);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+}
+
+
+
+/* Student */
+.student-text{
+
+    position: absolute;
+    width: 360px;
+    height: 74px;
+    left: -20px;
+    top: 380px;
+    
+    font-family: 'Oxygen';
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 81px;
+    text-align: center;
+    font-style: normal;
+    
+    color: #FFFFFF;
+    
+}
+
+.teacher:hover, .student:hover{
+    scale: 1.1;
+}
