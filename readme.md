@@ -70,6 +70,21 @@
 
 
 
+## Fonts
+- [Rubik](https://fonts.google.com/specimen/Rubik+80s+Fade)
+- [Hardtown](https://www.dafont.com/hardtown.font)
+- [Berliner Wand](https://www.dafont.com/berliner-wand.font)
+- [oxygen] (https://fonts.google.com/specimen/Oxygen)
+- [signika negative](https://fonts.google.com/specimen/Signika+Negative)
+- [lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- [Nanum Myeongjo](https://fonts.google.com/specimen/Nanum+Myeongjo?preview.size=27)
+- [Domine](https://fonts.google.com/specimen/Domine?preview.size=27)
+- [Merriweather](https://fonts.google.com/specimen/Domine?preview.size=27)
+- [Titillium Web](https://fonts.google.com/specimen/Titillium+Web?query=Accademia+di+Belle+Arti+di+Urbino)
+- [Coolvetica regular](https://www.1001fonts.com/coolvetica-font.html)
+
+
 ## Icons
 - [Teacher Avatars](https://www.flaticon.com/packs/teachers-avatars-10)
 - 
+
