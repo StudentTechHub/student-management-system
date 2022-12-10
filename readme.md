@@ -74,7 +74,7 @@
 - [Rubik](https://fonts.google.com/specimen/Rubik+80s+Fade)
 - [Hardtown](https://www.dafont.com/hardtown.font)
 - [Berliner Wand](https://www.dafont.com/berliner-wand.font)
-- [oxygen] (https://fonts.google.com/specimen/Oxygen)
+- [oxygen](https://fonts.google.com/specimen/Oxygen)
 - [signika negative](https://fonts.google.com/specimen/Signika+Negative)
 - [lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
 - [Nanum Myeongjo](https://fonts.google.com/specimen/Nanum+Myeongjo?preview.size=27)
