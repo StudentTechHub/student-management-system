@@ -90,4 +90,9 @@
 - Notification
 - User
 - Attendance
-- 
+- Edit
+- Delete
+- Search
+- Submit
+- Print
+- Export
