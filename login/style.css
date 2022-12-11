@@ -1,64 +1,69 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: linear-gradient(252.92deg, #00DCEF 0.55%, #0284C4 38.36%, #0273BC 49.71%, #2285C5 61%, #D7E9F8 98.86%);
-    backdrop-filter: blur(60px);
+  backdrop-filter: blur(60px);
 }
+
+/* Main */
 
 .content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-flow: row wrap;
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  z-index: 1;
 }
-
-.content>div {
-    margin: 50px;
+.content>div{
+  background: #0000;
+  margin-left: 50px;
+  /* transform: translate(-50%, 0); */
+}
+.content>div>div{
+  /* position: relative; */
+  backdrop-filter: blur(25px);
+  width: 365px;
+  height: 405px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: default;
+  transition: all .3s;
+  overflow: hidden;
+}
+.content>div>div>div:nth-child(2), .content>div>div>div:nth-child(3){
+  transition: all .3s;
 }
 
 .backParent {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .back {
-    position: absolute;
-    z-index: -1;
-    height: 100vh;
-    float: right;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
 }
 
 .back img {
-    width: 100%;
-    height: 100%;
-}
-
-/* Basic main */
-
-.rectangle2,
-.rectangle1 {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Teacher */
 
 
-.teacher {
-    cursor: pointer;
-    width: 404.95px;
-    height: 444.3px;
-    transition: 0.4s;
-    /* backdrop-filter: blur(15px); */
+.content>div.teacher {
+  /* transform: translate(50%, 0); */
+  margin-right: 50px;
 }
 
 /* Note: backdrop-filter has minimal browser support */
@@ -66,94 +71,173 @@ body {
 
 /* Rectangle 1 */
 .rectangle1 {
-    width: 404.95px;
-    height: 444.3px;
-    background: rgba(171, 255, 227, 0.66);
-    box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
-    border-radius: 76px;
+  background: rgba(171, 255, 227, 0.4);
+  box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
+  border-radius: 76px;
 }
 
 
 /* Ellipse 15 */
-.ellipse15 {
-    width: 307.1px;
-    height: 307.1px;
-    scale: 0.7;
-    background: url('Images/teacher.svg');
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+.teacherImg{
+  width: 307.1px;
+  height: 307.1px;
+  scale: 0.6;
+  background: url('Images/teacher.svg');
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
 }
 
 
 /* Teacher */
 .teacher-text {
-    width: 360px;
-    height: 74px;
-    scale: 0.7;
+  width: 360px;
+  height: 74px;
+  scale: 0.6;
 
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
-    font-family: 'Oxygen';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 81px;
-    text-align: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 81px;
+  text-align: center;
 
-    color: #FFFFFF;
+  color: #fff;
 
 }
 
 
 
 /* Student */
-.student {
-    width: 404.95px;
-    height: 444.3px;
-    transition: 0.4s;
-}
 
 /* Note: backdrop-filter has minimal browser support */
 
 
 /* Rectangle 1 */
 .rectangle2 {
-    width: 404.95px;
-    height: 444.3px;
-    background: rgba(220, 236, 255, 0.69);
-    box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
-    border-radius: 76px;
+  background: rgba(220, 236, 255, 0.4);
+  box-shadow: inset 1px 4px 47px rgba(0, 0, 0, 0.06);
+  border-radius: 76px;
 }
 
 
 /* Ellipse 15 */
-.ellipse15-2 {
-    width: 307.1px;
-    height: 307.1px;
-    scale: 0.7;
-    background: url('Images/student.svg');
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+.studentImg{
+  width: 307.1px;
+  height: 307.1px;
+  scale: 0.6;
+  background: url('Images/student.svg');
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
 }
-
-
 
 /* Student */
 .student-text {
-    width: 360px;
-    height: 74px;
-    scale: 0.7;
+  width: 360px;
+  height: 74px;
+  scale: 0.6;
 
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
-    font-family: 'Oxygen';
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 81px;
-    text-align: center;
-    font-style: normal;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.41));
+  font-family: 'Oxygen';
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 81px;
+  text-align: center;
+  font-style: normal;
 
-    color: #FFFFFF;
-
+  color: #fff;
 }
 
-.teacher:hover,
-.student:hover {
-    scale: 1.1;
+/* Light effect on mouse hover */
+.light{
+  height: 0;
+  width: 0;
+  display: none;
+  border-radius: 50%;
+  box-shadow: 0 0 50px 50px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+}
+
+/* form */
+.input.date::-webkit-calendar-picker-indicator{
+  padding: 8px;
+  background: url('Images/calender.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity:1;
+}
+.input.roll::-webkit-inner-spin-button,
+.input.roll::-webkit-outer-spin-button{
+  display: none;
+}
+.input.roll::placeholder{
+  color: darkgrey;
+}
+.form{
+  position: relative;
+  top: -100px;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+.input{
+  background: #224957;
+  height: 25px;
+  width: 300px;
+  color: white;
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.button{
+  margin-top: 40px;
+  border-radius: 30px;
+  border: none;
+  width: 340px;
+  height: 55px;
+}
+.btn{
+  color: white;
+  border:none;
+  border-radius: inherit;
+  height: inherit;
+  display:flex;
+  cursor: pointer;
+  font-weight: 700;
+  justify-content:center;
+  align-items: flex-end;
+  flex-flow: column wrap;
+  font-size: 16px;
+  background: none; 
+  background-color:#0f6400; 
+}
+.text{
+  position:absolute;
+  align-self: center;
+}
+.arrow{
+  box-sizing: border-box;
+  height: inherit;
+  width: 100%;
+  font-weight: 900;
+  padding-bottom: 5px;
+  display: flex;
+  border-radius: inherit;
+  justify-content: center;
+  align-items: center;
+  background: #57b846;
+  padding-left: 70px;
+  font-size: 20px;
+  transition: width .4s, padding .4s, margin-left .4s;
+}
+.arrow2{
+  padding-left: 140px;
+}
+.btn:hover .arrow{
+  width: 55px;
+  padding: 0;
+  padding-bottom: 5px;
 }
