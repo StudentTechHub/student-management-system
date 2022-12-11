@@ -2,12 +2,14 @@
 - Attendance Management
     - For Students
         - View Attendance in a particular time period
+        - A calender which shows the absent days in red, present days in green and holidays in yellow
 
     - For Teachers
         - Check total attendance of each student per subject
         - Check total student present per lecture
         - calcualte Percentage of attendance of each student
         - Export the data in a .csv or .pdf File
+        - A graph which shows the total students present per day across a time period
 
 - Student Details
     - For Student
@@ -22,7 +24,8 @@
 
 - Marks Details
     - For Students
-        - View Your Score/Percentage
+        - View Your Score/Percentage (in graphical form)
+        - Compare your score with another student (inside a graph)
     
     - For Teachers
         - Upload .csv(Excel) file  _Extra Advanced_
@@ -38,13 +41,11 @@
     - For Teachers
         - Add/Remove Announcement
         - Edit Announcement
-        -
-| **All** | Important  | Upcoming |
-| --- | --- | --- | 
-|      |
+
 
 ## Requirement Analysis
 - Database
+    - MongoDB (cuz of no issues with hosting)(but can be a bottleneck in case of huge traffic)
     - SQL
     - PostegreSQL
 
@@ -97,4 +98,3 @@
 - Print
 - Export
 - Eye Button
--
