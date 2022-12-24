@@ -22,8 +22,10 @@ body {
 .content>div{
   background: #0000;
   margin-left: 50px;
+  /* transform: translate(-50%, 0); */
 }
 .content>div>div{
+  /* position: relative; */
   backdrop-filter: blur(25px);
   width: 365px;
   height: 405px;
@@ -56,10 +58,32 @@ body {
   height: 100%;
 }
 
+/* Back Button */
+
+.backBtn{
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 50;
+  border-radius: 10px;
+  background: url("Images/backButton.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform .3s;
+}
+.backBtn:hover{
+  transform: scale(1.1);
+}
+
 /* Teacher */
 
 
 .content>div.teacher {
+  /* transform: translate(50%, 0); */
   margin-right: 50px;
 }
 
@@ -237,4 +261,13 @@ body {
   width: 55px;
   padding: 0;
   padding-bottom: 5px;
+}
+
+/* Media queries */
+
+
+@media screen and (max-width: 880px){
+  .content>div{
+    margin: 0;
+  }
 }
