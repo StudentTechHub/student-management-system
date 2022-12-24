@@ -22,10 +22,8 @@ body {
 .content>div{
   background: #0000;
   margin-left: 50px;
-  /* transform: translate(-50%, 0); */
 }
 .content>div>div{
-  /* position: relative; */
   backdrop-filter: blur(25px);
   width: 365px;
   height: 405px;
@@ -62,7 +60,6 @@ body {
 
 
 .content>div.teacher {
-  /* transform: translate(50%, 0); */
   margin-right: 50px;
 }
 
