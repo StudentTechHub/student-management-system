@@ -98,3 +98,8 @@
 - Print
 - Export
 - Eye Button
+
+## Student ID Design
+- Id Card Download Option in student and teacher sections
+- id card same as physical identification card
+
