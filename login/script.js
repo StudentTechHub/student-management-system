@@ -42,7 +42,7 @@ function input(name, type, placeholder, required, ...classList){
       const form = document.createElement('form');
       form.classList.add('form');
 
-      form.action = '../Teacher-Dashboard/index.html';
+      form.action = '../Teacher/Dashboard/';
 
       let input1, input2;
       if(elem===student){

@@ -1,0 +1,48 @@
+
+.mainChild{
+    justify-content: space-between;
+    flex-flow: column;
+}
+
+/* Main Containers */
+
+.tcContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height:fit-content;
+}
+
+[something]{
+    background: rgba(255, 255, 255, .4);
+    border-radius: 28px;
+}
+
+.caProgress{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+.box.Progress{
+    height: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pContainer{
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
+    background: #CE86E3;
+    border-radius: 28px;
+}
+
+.box{
+    box-sizing: border-box;
+    height: 275px;
+    width: 31.03678929765886%;
+    background:rgba(255, 255, 255, .4);
+    border-radius: 28px;
+}
