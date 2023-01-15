@@ -71,7 +71,7 @@ const template = `
 
 <div id="fade" class="blur-background">
 <div id="light" class="white_content">
-    <form action="">
+    <form action='addstudent.php' method="POST">
 
         <a cross href="javascript:void(0)"
             onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
@@ -87,30 +87,30 @@ const template = `
                     <h3>General Information</h3>
                     <div class="elements">
                         <label for="text" required>First Name</label>
-                        <input type="text">
+                        <input type="text" name="FNAME">
                     </div>
                     <div class="elements">
                         <label for="text">Last Name</label>
-                        <input type="text">
+                        <input type="text" name="LNAME">
                     </div>
                     <div class="elements">
                         <label for="text" required>Roll No.</label>
-                        <input type="number">
+                        <input type="number" name="ROLLNO">
                     </div>
                 </div>
                 <div class="education">
                     <h3>Education Information</h3>
                     <div class="elements">
                         <label for="text" required>Semester</label>
-                        <input type="text">
+                        <input type="text" name="SEMESTER">
                     </div>
                     <div class="elements">
                         <label for="text">Group</label>
-                        <input type="text">
+                        <input type="text" name="GROUP_NO">
                     </div>
                     <div class="elements">
                         <label for="text" required>Addmission<BR>Entry Type</label>
-                        <input type="text">
+                        <input type="text" name="ADDTYPE">
                     </div>
                 </div>
             </div>
@@ -119,37 +119,37 @@ const template = `
                     <h3>Location Information</h3>
                     <div class="elements">
                         <label for="text" required>State</label>
-                        <input type="text">
+                        <input type="text" name="STATE">
                     </div>
                     <div class="elements">
                         <label for="text">District</label>
-                        <input type="text">
+                        <input type="text" name="DISTRICT">
                     </div>
                     <div class="elements">
                         <label for="text" required>Village / H No</label>
-                        <input type="text">
+                        <input type="text" name="HOUSENO">
                     </div>
                 </div>
                 <div class="contact">
                     <h3>Contact Information</h3>
                     <div class="elements">
                         <label for="text" required>Email ID</label>
-                        <input type="email">
+                        <input type="email" name="EMAIL">
                     </div>
                     <div class="elements">
                         <label for="text">Student<BR>Phone No</label>
-                        <input type="Number">
+                        <input type="Number" name="SPHONE">
                     </div>
                     <div class="elements">
                         <label for="text" required>Parents<BR>Phone No</label>
-                        <input type="Number">
+                        <input type="Number" name="PARENTPHONE">
                     </div>
                 </div>
             </div>
         </div>
         <div class="btnContainer">
             <input type="submit" value="Add Student">
-            <input type="button" value="Cancel">
+            <input type="RESET" value="Reset">
         </div>
     </form>
 </div>
@@ -157,7 +157,7 @@ const template = `
 
 document.head.innerHTML = "<link rel='stylesheet' href='../tStyle.css'>\n<link rel='stylesheet' href='style.css'>"
 
-const folder = window.location.pathname.slice(window.location.pathname.lastIndexOf('/', window.location.pathname.lastIndexOf('/')-1), window.location.pathname.lastIndexOf('/'));
+const folder = window.location.pathname.slice(window.location.pathname.lastIndexOf('/', window.location.pathname.lastIndexOf('/') - 1), window.location.pathname.lastIndexOf('/'));
 
 const mainContent = document.body.children[0].outerHTML;
 
