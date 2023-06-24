@@ -1,0 +1,27 @@
+.tContainer{
+    border-radius: 28px;
+}
+table{
+    width: inherit;
+    height: fit-content;
+    border-radius: 28px;
+    text-align: center;
+    overflow: hidden;
+}
+th, td{
+    padding: 10px;
+}
+tr > *{
+    border: 1px solid #0000;
+    background: rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+}
+tr > td:last-child div{
+    padding: 5px 0;
+    font-family: consolas;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
+    color: #000;
+}

@@ -269,10 +269,11 @@ img[alt='logo'] {
     color: white;
 }
 
-.close-logo {
-    position: absolute;
-    right: 15px;
-    top: 15px;
+[cross]{
+    font-size: 25px;
+    color: white;
+    float: right;
+    text-decoration: none;
 }
 
 .top-heading {

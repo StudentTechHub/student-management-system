@@ -36,7 +36,7 @@ const template = `
     <div>
         <div class="user-group">
             <div class="user-logo" style="display: flex; align-items: center;">
-                <img src="../icons/teacher.svg" alt="logo">
+                <img src="../../icons/teacher.svg" alt="logo">
                 <p style="margin-left: 10px;">Dr. Naresh Gill</p>
             </div>
             
@@ -52,13 +52,13 @@ const template = `
 <div class="main">
         <div class="search-group">
             <div class="icon-search">
-                <img src="../icons/search.svg" alt="sIcon">
+                <img src="../../icons/search.svg" alt="sIcon">
             </div>
             <div class="search">
                 <input type="text" placeholder="Search">
             </div>
             <div class="notification">
-                <img src="../icons/bell.svg" alt="bellIcon" style="height: 20px;">
+                <img src="../../icons/bell.svg" alt="bellIcon" style="height: 20px;">
             </div>
         </div>
 
@@ -72,7 +72,7 @@ const template = `
         <form>
             <a cross href="javascript:void(0)"
                 onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
-                <img src="../icons/delete.png" alt="close-logo" height="15px" width="15px" class="close-logo">
+                &Cross;
             </a>
 
             <div class="top-heading">
@@ -297,7 +297,12 @@ function excelFileToJSON(file){
             const json = JSON.stringify(result, null, 4);
 
             workbook.SheetNames.forEach(sheetName => {
-                addStudents(JSON.parse(json)[sheetName])
+                const studentsArr = JSON.parse(json)[sheetName];
+                const studentObj = {};
+                studentsArr.forEach(student => {
+                    studentObj[student.rollNo] = student
+                })
+                addStudents(studentObj)
             })
         })
         reader.readAsBinaryString(file);
@@ -395,13 +400,13 @@ addStudentForm.addEventListener('submit', e => {
 
     // add student
 
-    const students = [{
+    const students = {}
+    students[addStudentForm.querySelector('[placeholder="Roll No."]').value] = {
         name: addStudentForm.querySelector('[placeholder="First Name"]').value + ' ' + addStudentForm.querySelector('[placeholder="Last Name"]').value,
         dob: addStudentForm.querySelector('[type="date"]').value,
         gender: addStudentForm.querySelector('select').value,
         fatherName: addStudentForm.querySelector('[placeholder="Father\'s name"]').value,
         motherName: addStudentForm.querySelector('[placeholder="Mother\'s name"]').value,
-        rollNo: addStudentForm.querySelector('[placeholder="Roll No."]').value,
         batch: addStudentForm.querySelector('[placeholder="Batch"]').value,
         semester: addStudentForm.querySelector('#sem').value,
         admissionType: addStudentForm.querySelector('#admissionType').value,
@@ -409,9 +414,11 @@ addStudentForm.addEventListener('submit', e => {
         district: addStudentForm.querySelector('#dist').value,
         village: addStudentForm.querySelector('#village').value,
         email: addStudentForm.querySelector('#email').value,
+        address: `${addStudentForm.querySelector('#village').value}, ${addStudentForm.querySelector('#dist').value}, ${addStudentForm.querySelector('#state').value}`,
+        rollNo: addStudentForm.querySelector('[placeholder="Roll No."]').value,
         studentPhone: addStudentForm.querySelector('#sPhone').value,
         parentPhone: addStudentForm.querySelector('#pPhone').value
-    }]
+    }
     addStudents(students)
 })
 

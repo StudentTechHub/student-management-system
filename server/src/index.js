@@ -19,7 +19,7 @@ try{
 
 
 
-const students = json || [];
+let students = json || {};
 
 const HOST = 'localhost';
 const PORT = 2080;
@@ -49,10 +49,10 @@ const server = http.createServer(async (req, res) => {
 
             if(body.requestFor === 'studentsList'){
                 res.end(JSON.stringify(students));
-                console.log('studentsList sent')
+                console.log('studentsList sent');
             }else if(body.requestFor === 'addStudents'){
                 try{
-                    students.push(...body.students);
+                    students = {...students, ...body.students};
                     fs.writeFile('./data/students.json', JSON.stringify(students), e => console.log("Students added to file."));
                     res.end(JSON.stringify({message: 'Students added successfully.', done: true}));
                 }catch(err){
@@ -62,8 +62,11 @@ const server = http.createServer(async (req, res) => {
                 res.end(JSON.stringify(statesDistricts));
                 console.log('statesDistricts sent')
             }else if(body.requestFor === 'saveRawJSON'){        //Saving Raw JSON File
-               fs.writeFile('../data/saveRawJSON.json', JSON.stringify(body.json), e => console.log("Raw JSON saved."));
+                fs.writeFile('../data/saveRawJSON.json', JSON.stringify(body.json), e => console.log("Raw JSON saved."));
                 res.end(JSON.stringify({message: 'Raw JSON saved successfully.', done: true}));
+            }else if(body.requestFor === 'student'){
+                res.end(JSON.stringify(students[body.rollNo]));
+                console.log('student sent')
             }
             else{
                 res.destroy()

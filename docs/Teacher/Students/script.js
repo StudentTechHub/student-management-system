@@ -136,18 +136,20 @@ window.addEventListener('load', async e => {
     positionAddBtn();
 
     const res = await fetch(serverURL, {method: 'POST', body: JSON.stringify({requestFor: 'studentsList'})})
-    const studentsArr = await res.json()
+    const studentsObj = await res.json();
 
     // let students be an array of objects
-    studentsArr.sort((a, b) => a.rollNo - b.rollNo).forEach(student => {
+    const rollNos = Object.keys(studentsObj);
+
+    rollNos.sort((a, b) => a - b).forEach(rollNo => {
         document.querySelector('.students').insertAdjacentHTML('beforeend', `
             <div class="student">
                 <div class="uImg">
-                    <img src="Pictures/${student.gender==='male'?'':'fe'}male.png" height="100%" alt="sIcon" />
+                    <img src="Pictures/${studentsObj[rollNo].gender==='male'?'':'fe'}male.png" height="100%" alt="sIcon" />
                 </div>
                 <div class="sDetails">
-                    <p class="sName" style="font-family: 'Montserrat';">${student.name.split(' ')[0]}</p>
-                    <p>${student.rollNo}</p>
+                    <p class="sName" style="font-family: 'Montserrat';">${studentsObj[rollNo].name.split(' ')[0]}</p>
+                    <p>${rollNo}</p>
                 </div>
             </div>`
         )
@@ -158,23 +160,23 @@ window.addEventListener('load', async e => {
     students.forEach((student, index) => {
         // feed the database variables here in this object, baaki ka kaam vo khud sambhal lega.
         const data = {
-            name: studentsArr[index].name, // isme daalne ki koi jarurat nhi hai
-            fatherName: studentsArr[index].fatherName, 
-            motherName: studentsArr[index].motherName, 
-            studentPhone: studentsArr[index].studentPhone, 
-            email: studentsArr[index].email, 
-            dob: studentsArr[index].dob, 
-            imgurl: `Pictures/${studentsArr[index].gender==='male'?'':'fe'}male.png`, // isme bhi daalne ki koi jarurat nhi hai
-            address: `${studentsArr[index].village}, ${studentsArr[index].district}, ${studentsArr[index].state}`,
+            name: studentsObj[rollNos[index]].name, // isme daalne ki koi jarurat nhi hai
+            fatherName: studentsObj[rollNos[index]].fatherName, 
+            motherName: studentsObj[rollNos[index]].motherName, 
+            studentPhone: studentsObj[rollNos[index]].studentPhone, 
+            email: studentsObj[rollNos[index]].email, 
+            dob: studentsObj[rollNos[index]].dob, 
+            imgurl: `Pictures/${studentsObj[rollNos[index]].gender==='male'?'':'fe'}male.png`, // isme bhi daalne ki koi jarurat nhi hai
+            address: `${studentsObj[rollNos[index]].address}`,
             achievements:['college mei pehla aaya tha, padhai mei', 'college mei pehla athlete', 'ye test achievements hai.', 'sabse last wali achievement sabse pehle aayegi, is baat ka dhyan rakhna', 'saastri ji', 'mr. India'],  // the last achievement will be shown first, reason - ek nayi achievement jab append hogi, to latest ko sabse upar dikhana sahi hai aur jo purani hoti jaye vo niche jaati jaye.
             marks: {
                 "sample key 1":[40, 50, 80, 60, 70],               /** ya fir subject wise, semester wise, sessional wise etc. saaro ka ikatha bhi ho sakta hai, lekin fir usme subject wise include mat karna. */
-                "sample key 2":[90, 30, 60, 90, 87, 30], 
+                "sample key 2":[90, 30, 60, 90, 87], 
                 "sample key 3":[76, 83, 100, 95, 90]
             }, 
-            rollNo: studentsArr[index].rollNo, 
-            semester: studentsArr[index].semester, 
-            batch: studentsArr[index].batch,
+            rollNo: rollNos[index], 
+            semester: studentsObj[rollNos[index]].semester, 
+            batch: studentsObj[rollNos[index]].batch,
             ranking: undefined
         }
 

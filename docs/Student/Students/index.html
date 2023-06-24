@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"
+      async="false"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <!-- Add Student Button -->
+
+    <div class="sContainer">
+      <!-- Selection Menu -->
+
+      <div class="studentDetails">
+      <header>
+        <h2>Student Details</h2>
+      </header>
+      <!-- student details pane -->
+      <main>
+        <div>
+          <div>
+            <div acaDetails>
+              <div class="img">
+                <figure>
+                  <img src="" alt="" />
+                </figure>
+                <div class="name"></div>
+              </div>
+              <div class="details">
+                <table>
+                  <tr>
+                    <th style="font-weight: bold; text-align: left">
+                      Roll No.
+                    </th>
+                    <td style="padding: 0 5px">:</td>
+                    <td class="rollNo"></td>
+                  </tr>
+                  <tr>
+                    <th style="font-weight: bold; text-align: left">
+                      Semester
+                    </th>
+                    <td style="padding: 0 5px">:</td>
+                    <td class="semester"></td>
+                  </tr>
+                  <tr>
+                    <th style="font-weight: bold; text-align: left">Batch</th>
+                    <td style="padding: 0 5px">:</td>
+                    <td class="batch"></td>
+                  </tr>
+                  <tr>
+                    <th style="font-weight: bold; text-align: left">Raking</th>
+                    <td style="padding: 0 5px">:</td>
+                    <td class="ranking"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div>
+              <div generalDetails>
+                <header>General Details</header>
+                <div class="details">
+                  <span style="font-weight: bold">Date of Birth: </span
+                  ><span class="dob"></span>
+                  <div style="display: flex; flex: 1">
+                    <span style="width: 50%"
+                      ><span style="font-weight: bold">Father's Name: </span
+                      ><span class="fatherName"></span
+                    ></span>
+                    <span style="width: 50%"
+                      ><span style="font-weight: bold">Mother's Name: </span
+                      ><span class="motherName"></span
+                    ></span>
+                  </div>
+                  <span style="font-weight: bold">Address: </span
+                  ><span class="address"></span>
+                  <div style="display: flex; flex: 1">
+                    <span style="width: 50%"
+                      ><span style="font-weight: bold">Phone: </span
+                      ><span class="studentPhone" style="width: 50%"></span
+                    ></span>
+                    <span style="width: 50%"
+                      ><span style="font-weight: bold">E-mail: </span
+                      ><span class="email" style="width: 50%"></span
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div achievements>
+                <header>Achievements</header>
+                <ul style="margin-left: 1em"></ul>
+              </div>
+            </div>
+          </div>
+          <div marksGraph>
+            <header>Academic Performance</header>
+            <div class="graph">
+              <svg height="155px" width="600px">
+                <path
+                  d="M20,5
+                     v135
+                     h400
+                "
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1px"
+                />
+                <!-- graph -->
+                <path
+                  d="M20,10
+                     h400
+                     m-400,32.5
+                     h400
+                     m-400,32.5
+                     h400
+                     m-400,32.5
+                     h400
+                "
+                  stroke="gray"
+                  stroke-width="1px"
+                />
+                <!-- field lines -->
+
+                <!-- value identifiers -->
+                <!-- on y -->
+                <text fill="white" x="7" y="152">0</text>
+                <text fill="white" x="-1" y="112" style="font-size: 14px">
+                  25
+                </text>
+                <text fill="white" x="-1" y="78" style="font-size: 14px">
+                  50
+                </text>
+                <text fill="white" x="-1" y="43" style="font-size: 14px">
+                  75
+                </text>
+                <text fill="white" x="-2" y="10" style="font-size: 12px">
+                  100
+                </text>
+
+                <!-- on x (ye wale script se dalega kyuki values vary kar sakti hai aur scale badhane ki bhi avashyakta pad sakti hai) -->
+                <!-- legends NOTE: maximum length of legend is 18, any more characters will be hidden. wrap is off. -->
+                <!-- ye bhi script se add honge -->
+              </svg>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js" async defer></script>
+    <script src="../tScript.js" async defer></script>
+  </body>
+</html>
