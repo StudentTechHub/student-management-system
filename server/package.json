@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A web server for SMS dedicated to deal with database.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antilneeraj/SMS-P.git"
+  },
+  "author": [
+    "Neeraj",
+    "Love"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antilneeraj/SMS-P/issues"
+  },
+  "homepage": "https://github.com/antilneeraj/SMS-P#readme",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}

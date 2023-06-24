@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(12, 12, 42);
+  color: white !important; 
+  /* background: url('Images/background.svg') no-repeat; */
+  background-size: cover;
+  font-family: 'Trebuchet MS', sans-serif;
+  padding: 40px;
+}
+
+/* Loading */
+
+.loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: translate(-40px, -40px);
+  background: rgba(205, 205, 205, .4);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity .4s;
+}
+
+.logo {
+  background: url('Images/collegeLogo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100px;
+  width: 100px;
+}
+
+.text {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+
+/* Main */
+
+.main {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  width: calc(100vw - 80px);
+  border-radius: 25px;
+  background: rgba(157, 157, 157, .1);
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, .3) */
+}
+
+/* navBar */
+
+.navBar {
+  height: 60px;
+  display: flex;
+  padding: 10px 75px 0px 50px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.left > div{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-width: 50px;
+}
+.left div[temp]{
+  margin-right: 10px;
+}
+.left div[tempIcon]{
+  height: 50px;
+  width: 50px;
+  background: url('Images/Weather.svg') no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 5px;
+}
+.tempValue{
+  font-size: 23px;
+}
+.tempText{
+  font-size: 12px;
+  color: rgb(230,230,230);
+  font-weight: 100;
+  font-family: omega sans;
+}
+.left div[timeLoc] p{
+  font-weight: 100;
+  font-family: omega sans;
+  font-size: 17px;
+}
+
+.box {
+  transform: translate(0, 20px);
+  transition: transform .4s;
+  color: white;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.box:hover {
+  transform: none;
+}
+
+.box .text {
+  transform: translate(0, -5px);
+}
+
+.i1 {
+  background-image: url('Images/homeIcon.svg');
+}
+
+.i2.items {
+  background-image: url('Images/collegeLogo.png');
+  background-size: 25px;
+}
+
+.i3.items {
+  background-image: url('Images/AboutUs.svg');
+  background-size: 25px;
+}
+
+.items {
+  font-weight: 500;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 40px;
+  width: 40px;
+}
+
+.loginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  background-color: #7D3DAF;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: box-shadow .4s, background-color .4s, color .1s;;
+}
+
+.loginBtn:hover {
+  color: rgb(64, 50, 187);
+  box-shadow: 1px 1px 10px gray;
+  background-color: white;
+}
+
+/* Landing */
+
+.landing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidePic {
+  margin:50px 70px;
+}
+
+.sideText {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left:50px;
+}
+
+.utitle{
+  display: flex;
+  flex-flow: column wrap;
+  height: fit-content;
+  width: 500px;
+  margin-top: 5px;
+}
+
+.title{
+  width: fit-content;
+  font-family: 'Trebuchet MS';
+  font-size: 35px;
+}
+
+.div{
+  position: fixed;
+  z-index: -1;
+  height: 700px;
+  width: 700px;
+  border-radius: 50%;
+  filter: blur(250px);
+}
+
+.tLeft{
+  top: 0;
+  left: 0;
+  transform: translate(-40%, -40%);
+  background: rgb(56, 111, 233);
+}
+
+.bRight{
+  bottom: 0;
+  right: 0;
+  transform: translate(60%, 60%);
+  background: rgb(120, 51, 215);
+}

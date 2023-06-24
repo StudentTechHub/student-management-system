@@ -1,0 +1,229 @@
+.sContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    border-radius: 28px;
+    background: rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+}
+
+#add {
+    position: absolute;
+    height: 60px;
+    width: auto;
+    scale: auto;
+    z-index: 100;
+    transition: scale .3s;
+}
+
+#add:hover {
+    scale: 1.1;
+}
+
+#add img {
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Selection Menu */
+
+.select {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .2);
+    color: #fff;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 10px 30px 10px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    /* arrow style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("../icons/downArrow.png");
+    background-repeat: no-repeat;
+    background-size: 12.5% auto;
+    background-position: 92% center;
+    cursor: pointer;
+}
+
+.select option{
+    height: inherit;
+    width: inherit;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* --------------------------------------------------- */
+.students {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.students {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row wrap;
+    font-family: 'Trebuchet MS', sans-serif;
+    scale: 1;
+    overflow: auto;
+}
+
+.students::-webkit-scrollbar{
+    width: 7px;
+    display: none;
+}
+.students:-webkit-scrollbar-thumb{
+    background: rgba()
+}
+
+.student:hover {
+    scale: 1.05;
+}
+
+.student {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, .2);
+    letter-spacing: .5px;
+    transition: scale .3s;
+    margin: 10px;
+}
+
+.student img {
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sDetails p {
+    color: #fff;
+}
+
+/* student details pane */
+
+.studentDetails{
+    height: 625px;
+    width: 70%;
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px black;
+    border-radius: 20px;
+    padding: 20px 16px;
+    display: none;
+}
+.studentDetails > header{
+    text-align: left;
+    font-size: 25px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid white;
+}
+.studentDetails > header span{
+    float: right;
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.details span{
+    margin: 10px 0;
+}
+.details{
+    padding: 10px 0 0;
+}
+
+/* preparing layout */
+
+.studentDetails main > div{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+}
+.studentDetails main > div > div:first-child{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px 0 15px;
+}
+.studentDetails main > div > div:first-child > div:last-child{
+    display: flex;
+    flex-flow: column nowrap;
+    width: calc(75% - 7.5px);
+    justify-content: space-between;
+    height: 350px;
+}
+
+[acaDetails], [generalDetails], [achievements], [marksGraph]{
+    border: 1px solid white;
+    border-radius: 20px;
+}
+[acaDetails]{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: calc(25% - 7.5px);
+    padding: 20px;
+}
+[marksGraph], [generalDetails], [achievements]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+[generalDetails], [achievements]{
+    height: calc(50% - 7.5px);
+}
+[marksGraph]{
+    height: 200px;
+}
+[acaDetails] .img{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+[acaDetails] figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 150px;
+}
+[acaDetails] figure img{
+    height: 100%;
+}
+[acaDetails] .img{
+    border-bottom: 1px solid white;
+}
+[acaDetails] .name{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+[generalDetails] header, [achievements] header, [marksGraph] header{
+    font-size: 20px;
+    text-transform: uppercase;
+}

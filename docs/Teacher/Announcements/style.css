@@ -1,0 +1,245 @@
+.aligner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+
+.aContainer {
+    height: 100%;
+    width: 60em !important;
+    background: rgba(157, 157, 157, .2);
+    border-radius: 28px;
+    flex-flow: column nowrap;
+    padding: 0;
+}
+
+/* Navigation Bar of Container */
+
+.aContainer .nav {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid white;
+}
+
+/* Elements of NavBar */
+
+.aContainer .nav div {
+    position: relative;
+    z-index: 5;
+    padding: 20px 40px;
+    border-radius: 28px 28px 0 0;
+    cursor: pointer;
+}
+
+/* Slider on NavBar */
+
+.nav div.slider {
+    position: absolute;
+    transition: margin-left .4s ease-out, width .4s;
+    background: rgba(255, 255, 255, .2);
+    padding: 0;
+}
+
+/* Announcements Container */
+
+.announcements {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.announcements>* {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    transition: margin-left .4s ease-out;
+}
+
+.announce {
+    width: calc(100% - 40px);
+    height: 20%;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .4);
+    margin-top: 20px;
+}
+
+#add {
+    position: absolute;
+    height: 60px;
+    width: auto;
+    scale: auto;
+    transition: scale .3s;
+}
+
+#add:hover {
+    scale: 1.2;
+}
+
+#add img {
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Add Announcement Section */
+
+.create,
+.background {
+    display: none;
+}
+
+.create {
+    position: absolute;
+    padding: 20px;
+    height: 85vh;
+    width: 70vw;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 28px;
+    top: 50%;
+    left: 50%;
+    flex-flow: column nowrap;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.form{
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.create input,
+.create textarea {
+    width: 100%;
+    resize: none;
+    min-height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 12.5px;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+.create #message{
+    margin-top: 19px;
+}
+
+.close {
+    float: right;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.top-heading {
+    width: inherit;
+    margin: 5px 0;
+    border-bottom: 1px solid gray;
+}
+
+.top-heading p {
+    padding: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.create div[lastdiv] {
+    margin-top: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.create div[lastdiv] input {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.create div[lastdiv]>div {
+    display: flex;
+    align-items: center;
+}
+
+.close img {
+    height: 100%;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    top: 0%;
+    left: 0%;
+}
+
+.create div[lastdiv]>div>input[type='date']::-webkit-calendar-picker-indicator {
+    padding: 5px;
+    background: url('../../Login/Images/calender.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 1;
+}
+
+/* Submit and Cancel Buttons */
+.btnContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    bottom: 0;
+}
+
+.btnContainer input {
+    padding: 12.5px 30px;
+    width: 155px;
+    border-radius: 10px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(64, 50, 187, .8);
+    transition: background-color .4s, color .4s, box-shadow .4s;
+}
+
+.btnContainer input:hover {
+    color: rgb(64, 50, 187);
+    box-shadow: 1px 1px 10px gray;
+    background-color: white;
+}
+
+.btnContainer input:last-child {
+    background-color: gray;
+    transition: background-color .4s, box-shadow .4s;
+}
+
+.btnContainer input:last-child:hover {
+    color: rgb(64, 50, 187);
+    box-shadow: 1px 1px 10px gray;
+    background-color: white;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Announcements</title>
+</head>
+
+<body>
+    <div class='aligner'>
+        <div class="background"></div>
+        <div class="aContainer">
+            <div id="add"
+                onclick="document.querySelector('.create').style.display = 'flex'; document.querySelector('.background').style.display = 'block';">
+                <img src="../icons/addCircle.svg" alt="add">
+            </div>
+            <div class="nav">
+                <div class="slider"></div>
+                <div>Events</div>
+                <div>Upcoming</div>
+                <div>Important</div>
+            </div>
+            <div class="announcements">
+                <div class="event">
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                </div>
+                <div class="upcoming">
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                </div>
+                <div class="important">
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                    <div class="announce"></div>
+                </div>
+            </div>
+            <!-- Add Announcement Section -->
+
+            <div class="create">
+                <div>
+                    <div class="close"
+                        onclick="[document.querySelector('.create'), document.querySelector('.background')].forEach(elem => elem.style.display = 'none');">
+                        <img src="../icons/delete.png" alt="close">
+                    </div>
+                    <div class="top-heading">
+                        <p>Create Announcement</p>
+                    </div>
+                </div>
+                <form announcement>
+                    <input type="text" name="title" id="title" placeholder="Title">
+
+                    <textarea placeholder="Message" name="message" id="message" cols="30" rows="10"></textarea>
+
+                    <input placeholder="Tags" type="text" name="tags" id="tags">
+
+                    <div lastdiv>
+                        <div>
+                            <input type="checkbox" id="imp"><label for="imp">Important</label>
+                        </div>
+
+                        <div>
+                            <div class="aDate">Date: </div>
+                            <input type="date" name="date" id="date">
+                        </div>
+
+                        <div>
+                            <div class="aTime">Time: </div>
+                            <input type="time" name="time" id="time">
+                        </div>
+                    </div>
+                    <div class="btnContainer">
+                        <input type="submit" value="Create">
+                        <input type="button" value="Cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="./script.js" async defer></script>
+        <script src="../tScript.js" async defer></script>
+</body>
+</html>
