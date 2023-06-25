@@ -166,16 +166,16 @@ window.addEventListener('load', async e => {
             dob: studentsArr[index].dob, 
             imgurl: `Pictures/${studentsArr[index].gender==='male'?'':'fe'}male.png`, // isme bhi daalne ki koi jarurat nhi hai
             address: `${studentsArr[index].village}, ${studentsArr[index].district}, ${studentsArr[index].state}`,
-            achievements:['college mei pehla aaya tha, padhai mei', 'college mei pehla athlete', 'ye test achievements hai.', 'sabse last wali achievement sabse pehle aayegi, is baat ka dhyan rakhna', 'saastri ji', 'mr. India'],  // the last achievement will be shown first, reason - ek nayi achievement jab append hogi, to latest ko sabse upar dikhana sahi hai aur jo purani hoti jaye vo niche jaati jaye.
+            achievements:['3rd Rank in Technova Techfest', 'Mr. Farewell 2020 batch', 'Highest attendance record in 2 Semesters', ' Position holder for 3 semesters'],  // the last achievement will be shown first, reason - ek nayi achievement jab append hogi, to latest ko sabse upar dikhana sahi hai aur jo purani hoti jaye vo niche jaati jaye.
             marks: {
-                "sample key 1":[40, 50, 80, 60, 70],               /** ya fir subject wise, semester wise, sessional wise etc. saaro ka ikatha bhi ho sakta hai, lekin fir usme subject wise include mat karna. */
-                "sample key 2":[90, 30, 60, 90, 87, 30], 
-                "sample key 3":[76, 83, 100, 95, 90]
+                "3rd Semester":[40, 50, 80, 60, 70],               /** ya fir subject wise, semester wise, sessional wise etc. saaro ka ikatha bhi ho sakta hai, lekin fir usme subject wise include mat karna. */
+                "4th Semester":[90, 30, 60, 90, 87, 30], 
+                "5th Semester":[76, 83, 100, 95, 90]
             }, 
             rollNo: studentsArr[index].rollNo, 
             semester: studentsArr[index].semester, 
             batch: studentsArr[index].batch,
-            ranking: undefined
+            ranking: "1st"
         }
 
         student.addEventListener('click', e => studentDetails(e, data));
