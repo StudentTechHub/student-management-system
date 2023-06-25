@@ -106,8 +106,8 @@ body {
 }
 
 .box {
-  transform: translate(0, 20px);
-  transition: transform .4s;
+  /* transform: translate(0, 20px);
+  transition: transform .4s; */
   color: white;
   margin-right: 25px;
   display: flex;
