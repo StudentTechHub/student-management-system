@@ -1,5 +1,14 @@
-function script() {
+async function script() {
 
+  const loggedInStudent = await fetch(serverURL, {
+    method: 'POST',
+    body: JSON.stringify({
+        requestFor: 'student',
+        rollNo: rollNo
+    })
+  }).then(res => res.json())
+
+  document.querySelector('.name').innerHTML = loggedInStudent.name;
 
   // to scale idcard
   document.querySelector('iframe').contentWindow.document.querySelector("html").style.scale='0.75';
@@ -135,6 +144,8 @@ function script() {
       renderCalendar();
     });
   });
+
+
 }
 
 // Sometimes browser runs another script when one script takes time, and therefore, this leads to some errors or unwanted behaviour. To prevent this we can use window.addEventListener('load', function) to run the function only when the page is fully loaded.

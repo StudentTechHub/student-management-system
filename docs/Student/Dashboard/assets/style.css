@@ -79,14 +79,14 @@ body {
     display: flex;
     flex-flow: row nowrap;
     align-items: initial;
-    justify-content: center;
+    justify-content: space-between;
     padding-top: 10px;
 }
 
 .detailsC {
     font-size: 12px;
     margin-left: 10px;
-
+    width: 65%;
 }
 
 .elemAligner {

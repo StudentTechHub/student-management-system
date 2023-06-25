@@ -20,6 +20,7 @@ try{
 
 
 let students = json || {};
+let loggedOnRoll = 0;
 
 const HOST = 'localhost';
 const PORT = 2080;
@@ -67,6 +68,25 @@ const server = http.createServer(async (req, res) => {
             }else if(body.requestFor === 'student'){
                 res.end(JSON.stringify(students[body.rollNo]));
                 console.log('student sent')
+            }else if(body.requestFor === 'loggedOnRoll'){
+                if(loggedOnRoll===undefined){
+                    loggedOnRoll = 0;
+                }
+                res.end(JSON.stringify(loggedOnRoll));
+                console.log('loggedOnRoll sent');
+            }else if(body.requestFor === 'studentLogin'){
+                loggedOnRoll = body.identifier[0];
+                if(typeof loggedOnRoll === 'string' && students[loggedOnRoll]){
+                    res.end(JSON.stringify({message: 'Logged in successfully', done: true}))
+                    console.log('login successful')
+                }else{
+                    res.end(JSON.stringify({message: 'Login unsuccessful', done: false}))
+                    console.log('login unsuccessful, invalid rollNo');
+                }
+            }else if(body.requestFor === 'logoutStudent'){
+                loggedOnRoll = 0;
+                res.end(JSON.stringify({message: 'logged out successfully', done: true}))
+                console.log('logout successful');
             }
             else{
                 res.destroy()

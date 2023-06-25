@@ -67,6 +67,26 @@ function input(name, type, placeholder, required, ...classList){
       form.append(submitParent)
 
 
+      form.addEventListener('submit', async e => {
+        elem===student?e.preventDefault():0;
+
+        const res = await fetch('http://localhost:2080', {
+          method: 'POST',
+          body: JSON.stringify({
+            requestFor: elem===student?'studentLogin':'none',
+            identifier: [elem===student?input1.value:'none'],
+          })
+        })
+        const obj = await res.json();
+
+        if(obj.done){
+          window.location.href = form.action;
+        }else{
+          alert('Invalid Roll No.');
+        }
+      })
+
+
       elem.append(form);
       elem.form=form;
       elem.clicked=true;
