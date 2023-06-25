@@ -44,9 +44,9 @@ function input(name, type, placeholder, required, ...classList){
 
       let input1, input2;
       if(elem===student){
-        input1 = input('number', 'roll', 'Roll Number', true, 'input', 'roll');
+        input1 = input('roll', 'number', 'Roll Number', true, 'input', 'roll');
         input2 = input('date', 'date', '', true, 'input', 'date');
-        form.action = '../Student/';
+        form.action = '../Student/Dashboard/';
       }else{
         input1 = input('text', 'uid', 'User ID', true, 'input');
         input2 = input('password', 'password', 'Password', true, 'input');
@@ -65,6 +65,26 @@ function input(name, type, placeholder, required, ...classList){
       `;
 
       form.append(submitParent)
+
+
+      form.addEventListener('submit', async e => {
+        elem===student?e.preventDefault():0;
+
+        const res = await fetch('http://localhost:2080', {
+          method: 'POST',
+          body: JSON.stringify({
+            requestFor: elem===student?'studentLogin':'none',
+            identifier: [elem===student?input1.value:'none'],
+          })
+        })
+        const obj = await res.json();
+
+        if(obj.done){
+          window.location.href = form.action;
+        }else{
+          alert('Invalid Roll No.');
+        }
+      })
 
 
       elem.append(form);
@@ -91,13 +111,17 @@ document.addEventListener('mousemove', e =>
 // Autofill
 
 const params = new URL(window.location).searchParams;
-if(params.get('user')==='teacher' && !teacher.click())
+if(params.get('user')==='teacher' && !teacher.click()){
   ['uid', 'password'].forEach(param => {
     const elem = [...teacher.querySelectorAll('*')].filter(elem => elem.name===param)[0];      // got the element
     elem.value=params.get(param) ?? '';                                                        // set value
   })
-else if(params.get('user')==='student' && !student.click())
+  teacher.querySelector('button').click();
+}
+else if(params.get('user')==='student' && !student.click()){
   ['roll', 'date'].forEach(param => {
     const elem = [...student.querySelectorAll('*')].filter(elem => elem.name===param)[0];      // got the element
     elem.value=(param==='roll'?params.get(param)??'':params.get('date')?`${params.get('date').slice(4, 8)}-${params.get('date').slice(2, 4)}-${params.get('date').slice(0, 2)}`:'');   // set value
   })
+  student.querySelector('button').click()
+}

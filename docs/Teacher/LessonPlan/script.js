@@ -27,7 +27,7 @@ window.onload = e => {
                 <input type="checkbox">&nbsp;2&nbsp;
                 <input type="checkbox">&nbsp;3&nbsp;
                 <input type="checkbox">
-                <div style='align-items:flex-end;'><img src='../icons/addCircle.svg' height='25px' alt='add'></div></div>
+                <div style='align-items:flex-end;'><img src='../../icons/addCircle.svg' height='25px' alt='add'></div></div>
             </td>
             <td><div>https://gpsonipat.ac.in/</div></td>
         `;

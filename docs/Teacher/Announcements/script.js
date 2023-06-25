@@ -18,8 +18,8 @@ window.addEventListener('load', e => {
 
     // bete ko baap ke barabar lane ke liye
 
-    const bete = [document.querySelector('.background'), document.querySelector('.create')];
-    bete.forEach(beta => document.body.append(beta));
+    const containers = [document.querySelector('.background'), document.querySelector('.create')];
+    containers.forEach(container => document.body.append(container));
 // Aligning Add Button
 
     const add = document.querySelector('#add');
@@ -33,17 +33,22 @@ window.addEventListener('load', e => {
 
     form.addEventListener('submit', e => {
         const headers  = {
-
+            'Content-Type': 'application/json',
         }
         const inputs = ['title', 'message', 'tags', 'imp', 'date', 'time'].map(id => document.querySelector(`#${id}`));
-        fetch('teri api ka url', {
+        fetch(serverURL, {
             method: 'POST', 
-            body:inputs.map(input => Object()[input.name] = input.value),
+            body: JSON.stringify({
+                requestFor: 'announcements',
+                required: inputs.map(input => Object()[input.name] = input.value)
+            }),
             headers: headers
         }).then(success => success.json())
-        .then(json => {
-            if(!json.parse().success){
-                // unsuccessful
+        .then(data => {
+            if(data.done){
+                //successful
+            }else{
+                //unsuccesful
             }
         })
     });

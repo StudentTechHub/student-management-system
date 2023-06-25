@@ -19,7 +19,8 @@ try{
 
 
 
-const students = json || [];
+let students = json || {};
+let loggedOnRoll = 0;
 
 const HOST = 'localhost';
 const PORT = 2080;
@@ -49,10 +50,10 @@ const server = http.createServer(async (req, res) => {
 
             if(body.requestFor === 'studentsList'){
                 res.end(JSON.stringify(students));
-                console.log('studentsList sent')
+                console.log('studentsList sent');
             }else if(body.requestFor === 'addStudents'){
                 try{
-                    students.push(...body.students);
+                    students = {...students, ...body.students};
                     fs.writeFile('./data/students.json', JSON.stringify(students), e => console.log("Students added to file."));
                     res.end(JSON.stringify({message: 'Students added successfully.', done: true}));
                 }catch(err){
@@ -62,8 +63,30 @@ const server = http.createServer(async (req, res) => {
                 res.end(JSON.stringify(statesDistricts));
                 console.log('statesDistricts sent')
             }else if(body.requestFor === 'saveRawJSON'){        //Saving Raw JSON File
-               fs.writeFile('../data/saveRawJSON.json', JSON.stringify(body.json), e => console.log("Raw JSON saved."));
+                fs.writeFile('../data/saveRawJSON.json', JSON.stringify(body.json), e => console.log("Raw JSON saved."));
                 res.end(JSON.stringify({message: 'Raw JSON saved successfully.', done: true}));
+            }else if(body.requestFor === 'student'){
+                res.end(JSON.stringify(students[body.rollNo]));
+                console.log('student sent')
+            }else if(body.requestFor === 'loggedOnRoll'){
+                if(loggedOnRoll===undefined){
+                    loggedOnRoll = 0;
+                }
+                res.end(JSON.stringify(loggedOnRoll));
+                console.log('loggedOnRoll sent');
+            }else if(body.requestFor === 'studentLogin'){
+                loggedOnRoll = body.identifier[0];
+                if(typeof loggedOnRoll === 'string' && students[loggedOnRoll]){
+                    res.end(JSON.stringify({message: 'Logged in successfully', done: true}))
+                    console.log('login successful')
+                }else{
+                    res.end(JSON.stringify({message: 'Login unsuccessful', done: false}))
+                    console.log('login unsuccessful, invalid rollNo');
+                }
+            }else if(body.requestFor === 'logoutStudent'){
+                loggedOnRoll = 0;
+                res.end(JSON.stringify({message: 'logged out successfully', done: true}))
+                console.log('logout successful');
             }
             else{
                 res.destroy()

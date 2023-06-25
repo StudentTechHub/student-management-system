@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="icons/teacher.svg" type="image/x-icon" />
+    <title>SMS | Teacher</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!-- yha par jo bhi likhana hai vo ek div me enclose kar dena varna palhe vala div select ho jayega or doosre vala reh jayega -->
+
+    <!-- -----------------Time Table and Calendar--------- -->
+    <div>
+      <div
+        style="
+          position: relative;
+          display: flex;
+          height: calc((100% - 52.6%) - 26px);
+          justify-content: space-around;
+        "
+      >
+        <div something>
+          <div class="greeting">Welcome,</div>
+          <div class="name"></div>
+          <div class="designation">Student</div>
+          <div class="branch">Computer Engineering Department</div>
+        </div>
+
+        <div class="idcard box" style="display: flex;flex-flow: column nowrap; align-items: flex-end;">
+          <iframe src="./assets/index.html" height="100%" width="100%" frameborder="0"></iframe>
+          <div class="download">
+            <svg style="scale: 0.25">
+              <path 
+                d="M50,0
+                   v50
+                   l-25,-25
+                   m50,0
+                   l-25,25
+                   m-40,-10
+                   v30
+                   q0,5 5,5
+                   h70
+                   q5,0 5,-5
+                   v-30
+                " fill="none" stroke="white" stroke-width="6px" style="stroke-linecap: round;stroke-linejoin: round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcContainer">
+        <div class="tTable box"></div>
+        <div class="Progress box">
+          <div class="pContainer">
+            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+              <text style="fill:white; font-size: 35px;">0%</text>
+              <polyline points="" />
+            </svg>
+            <div class="progressContent">
+              <header><h3 style="font-family: sans-serif">Marks achieved</h2></header>
+              <h2 studentPassed></h2>
+            </div>
+          </div>
+        </div>        
+        <div class="cal box">
+          <div class="wrapper">
+            <header>
+              <p class="current-date"></p>
+              <div class="icons">
+                <span id="prev">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-caret-left-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                    />
+                  </svg>
+                </span>
+
+                <span id="next">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-caret-right-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </header>
+
+            <div class="calendar">
+              <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+              </ul>
+              <ul class="days"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js" async defer></script>
+    <script src="../tScript.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../../../plugins/jasonday-printThis-23be1f8/printThis.js" async defer></script>
+  </body>
+</html>
