@@ -1,0 +1,50 @@
+main{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    border-radius: 28px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+main::-webkit-scrollbar, .resources::-webkit-scrollbar{
+    display: none;
+}
+
+/* main */
+
+.resources{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+.resource{
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: scale .2s;
+}
+.resource:hover{
+    scale: 1.05;
+}
+main div figure{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    background: url('../../icons/book.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.resource > div{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.resource div span:last-child{
+    font-weight: 700;
+}

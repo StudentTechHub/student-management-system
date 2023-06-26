@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMS | Home</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="Fonts/stylesheet.css">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Fonts/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" async defer></script>
+    <script src="https://unpkg.com/tilt.js@1.1.19/dest/tilt.jquery.js" async defer></script>
 </head>
 
 <body>
@@ -35,18 +37,15 @@
           <p location>Sonipat, IN</p>
         </div>
       </div>
-
+      
       <div style="display:flex;align-items: center">
-        <a href="javascript:window.location.reload()" class="box">
-          <!-- <div class="i1 items"></div> -->
+        <a href="javascript:document.querySelector('.main').scrollTop=0;" class="box">
           <div>Home</div>
         </a>
         <a href="https://gpsonipat.ac.in/" class="box">
-          <!-- <div class="i2 items"></div> -->
           <div>GP Sonipat</div>
         </a>
-        <a href="javascript:window.location.reload()" class="box">
-          <!-- <div class="i3 items"></div> -->
+        <a href="#aboutUs" class="box">
           <div>About Us</div>
         </a>
         <a href="./Login/index.html" class="loginBtn">Login</a>
@@ -56,13 +55,39 @@
     <div class="landing">
       <div class="sideText">
         <div class="title">Student Management System</div>
-        <div class="utitle" style="font-size: 19px;color:rgb(229, 229, 229)">Welcome to the "Student Management System" website, your centralized platform for efficient student management and administrative processes. Access attendance, timetables, events, and academic records seamlessly. Experience collaboration and engagement with virtual ID cards, resource sharing, and timely notifications. Join us to empower students, teachers, and staff for educational excellence.
+        <div class="utitle" style="font-size: 20px;">An Effective WebApp to manage student of Computer Engineering in an organized way
         </div>
       </div>
       <div class="sidePic">
         <img src="Images/sideIcon.svg" alt="Something" height="400px" width="400px">
       </div>
     </div>
+    <section id="aboutUs" class="aboutUs">
+      <header class="title" style="text-align: center;">Project Team</header>
+      <div class="memContainer">
+        <div>
+          <figure>
+            <img src="Images/luv.png" alt="Team member">
+          </figure>
+          <div class="name">Love</div>
+          <div class="role">Thekedaar & Designer</div>
+        </div>
+        <div>
+          <figure>
+            <img src="Images/neeraj.png" alt="Team member">
+          </figure>
+          <div class="name">Neeraj</div>
+          <div class="role">Developer & Maintainer</div>
+        </div>
+        <div>
+          <figure>
+            <img aman src="Images/amandeep.png" alt="Team member">
+          </figure>
+          <div class="name">Amandeep</div>
+          <div class="role">Tester & Documentor</div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script src="script.js" async defer></script>

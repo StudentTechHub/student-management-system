@@ -12,6 +12,14 @@ body {
   padding: 40px;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+  display:none;
+}
+
 /* Loading */
 
 .loading {
@@ -49,11 +57,16 @@ body {
 
 .main {
   position: relative;
-  min-height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
   width: calc(100vw - 80px);
   border-radius: 25px;
   background: rgba(157, 157, 157, .1);
+  overflow: auto;
+  scroll-behavior: smooth;
   /* box-shadow: 5px 5px 10px rgba(0, 0, 0, .3) */
+}
+.main::-webkit-scrollbar{
+  display: none;
 }
 
 /* navBar */
@@ -65,6 +78,8 @@ body {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  position: fixed;
+  width: calc(100% - 180px);
 }
 
 
@@ -106,8 +121,6 @@ body {
 }
 
 .box {
-  /* transform: translate(0, 20px);
-  transition: transform .4s; */
   color: white;
   margin-right: 25px;
   display: flex;
@@ -115,28 +128,6 @@ body {
   flex-flow: column nowrap;
   text-decoration: none;
   cursor: pointer;
-}
-
-.box:hover {
-  transform: none;
-}
-
-.box .text {
-  transform: translate(0, -5px);
-}
-
-.i1 {
-  background-image: url('Images/homeIcon.svg');
-}
-
-.i2.items {
-  background-image: url('Images/collegeLogo.png');
-  background-size: 25px;
-}
-
-.i3.items {
-  background-image: url('Images/AboutUs.svg');
-  background-size: 25px;
 }
 
 .items {
@@ -174,6 +165,7 @@ body {
 .landing {
   display: flex;
   justify-content: space-between;
+  margin-top: 60px;
 }
 
 .sidePic {
@@ -223,4 +215,73 @@ body {
   right: 0;
   transform: translate(60%, 60%);
   background: rgb(120, 51, 215);
+}
+
+
+/* Abou tsss */
+
+
+.aboutUs{
+  min-height: 90vh;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  padding-top: 50px;
+}
+
+.aboutUs header{
+  margin-bottom: 30px;
+}
+
+.memContainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.memContainer > div{
+  padding: 50px;
+  padding-top: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 25px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin: 50px;
+}
+.memContainer figure{
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.memContainer figure img{
+  height: 100%;
+  width: 100%;
+}
+
+.memContainer figure img[aman]{
+  margin-top: 25px;
+  scale: .9;
+}
+
+.name{
+  font-size:x-large;
+}
+.name, .role{
+  text-align: center;
+  width: 100%;
+}
+.role{
+  color: rgba(255,255,255,0.8);
+}
+.js-tilt-glare{
+  border-radius: 25px;
 }

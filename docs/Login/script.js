@@ -74,7 +74,7 @@ function input(name, type, placeholder, required, ...classList){
           method: 'POST',
           body: JSON.stringify({
             requestFor: elem===student?'studentLogin':'none',
-            identifier: [elem===student?input1.value:'none'],
+            identifier: [elem===student?input1.value:'none', elem===student?input2.value:'none'],
           })
         })
         const obj = await res.json();
@@ -82,7 +82,7 @@ function input(name, type, placeholder, required, ...classList){
         if(obj.done){
           window.location.href = form.action;
         }else{
-          alert('Invalid Roll No.');
+          alert('Invalid Roll No. or DOB');
         }
       })
 

@@ -19,7 +19,7 @@ const template = `
                     <div>Lesson Plan</div>
                 </a>
                 <a href='../Students'>
-                    <div>Students</div>
+                    <div>My Details</div>
                 </a>
                 <a href = '../Marks'>
                     <div>Marks</div>

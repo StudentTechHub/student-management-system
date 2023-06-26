@@ -1,0 +1,129 @@
+main{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    border-radius: 28px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+main::-webkit-scrollbar, .resources::-webkit-scrollbar{
+    display: none;
+}
+
+/* main */
+
+.resources{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+#add {
+    position: absolute;
+    height: 60px;
+    width: auto;
+    scale: auto;
+    z-index: 100;
+    transition: scale .3s;
+}
+
+#add:hover {
+    scale: 1.1;
+}
+
+#add img {
+    height: 100%;
+    cursor: pointer;
+}
+
+.resource{
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: scale .2s;
+}
+.resource:hover{
+    scale: 1.05;
+}
+main div figure{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    background: url('../../icons/book.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.resource div{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.resource div span:last-child{
+    font-weight: 700;
+}
+
+.addResource{
+    height: 300px;
+    width: 70%;
+    max-width: 400px;
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px black;
+    border-radius: 20px;
+    padding: 20px 16px;
+    display: none;
+    
+}
+.addResource > header{
+    text-align: left;
+    font-size: 25px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid white;
+}
+.addResource > header span{
+    float: right;
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+    line-height: 25px;
+    cursor: pointer;
+}
+.btnContainer{
+    width: 100%;
+    flex: 1;
+}
+.btnContainer input{
+    width: 100% !important;
+}
+.inputs{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 !important;
+}
+.inputs input, .inputs select {
+    height: 30px;
+    min-width: 200px;
+    border: 1px solid dimgrey;
+    border-radius: 3px;
+    margin: 10px;
+    outline: none;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: border .2s, box-shadow .2s;
+}
+
+.inputs input:focus, .inputs select:focus {
+    border: 1px solid rgb(64, 50, 187);
+    box-shadow: 0 0 2px 0 rgba(64, 50, 187, .5);
+}

@@ -8,7 +8,30 @@
     <title>Resources</title>
 </head>
 <body>
-    
+
+    <main>
+        <div id="add" onclick="document.querySelector('.addResource').style.display='block';document.getElementById('fade').style.display='block'">
+            <img src="../../icons/addCircle.svg" alt="add">
+        </div>
+        <div class="resources"></div>
+
+        <div class="addResource">
+            <header>Add Resource <span onclick="document.querySelector('.addResource').style.display='none';document.querySelector('#fade').style.display='none'">&Cross;</span></header>
+            <form>
+                <div class="inputs">
+                    <input type="text" placeholder="Title" class="title" required>
+                    <input type="text" placeholder='Subject' class="subject" required>
+                    <input type="file" id='fileInput' class="file" placeholder="File" required>
+                </div>
+                <div class="btnContainer">
+                    <input type="submit" value="Add Resource">
+                    <input type="button" value="Cancel" onclick="document.querySelector('.addResource').style.display='none';document.querySelector('#fade').style.display='none'">
+                </div>
+            </form>
+        </div>
+    </main>
+
     <script src="../tScript.js" async defer></script>
+    <script src="./script.js" async defer></script>
 </body>
 </html>

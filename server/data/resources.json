@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Notes AD",
+    "subject": "AD",
+    "file": { "name": "neeraj.png" },
+    "fileURL": "../../../server/data/resourceFiles/neeraj.png"
+  },
+  {
+    "title": "MOAD ch-1",
+    "subject": "MOAD",
+    "file": { "name": "MOADPRACTICALFILE.pdf" },
+    "fileURL": "../../../server/data/resourceFiles/MOADPRACTICALFILE.pdf"
+  },
+  {
+    "title": "Notes",
+    "subject": "NS",
+    "file": { "name": "Don't delete this.htm" },
+    "fileURL": "../../../server/data/resourceFiles/Don't delete this.htm"
+  }
+]

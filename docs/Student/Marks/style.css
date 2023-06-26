@@ -1,0 +1,40 @@
+.containerTable{
+    overflow-y: auto;
+    border-radius: 28px;
+}
+.containerTable::-webkit-scrollbar{
+    display: none;
+}
+
+.studentsContainer{
+    width: inherit;
+    height: fit-content;
+    text-align: center;
+    overflow: hidden;
+}
+.studentsContainer th, .studentsContainer td{
+    padding: 10px;
+}
+.studentsContainer table th{
+    border-radius: 10px;
+}
+.studentsContainer table{
+    width: 100%;
+}
+.studentsContainer tr:first-child th, .studentsContainer tr:first-child td{
+    padding: 2.5px;
+}
+.studentsContainer tr > *{
+    border: 1px solid #0000;
+    background: rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+}
+.studentsContainer tr > td:last-child div{
+    padding: 5px 0;
+    font-family: consolas;
+    cursor: pointer;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
+    color: #000;
+}

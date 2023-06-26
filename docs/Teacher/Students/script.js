@@ -177,8 +177,7 @@ window.addEventListener('load', async e => {
             rollNo: rollNos[index], 
             semester: studentsObj[rollNos[index]].semester, 
             batch: studentsObj[rollNos[index]].batch,
-            ranking: "1st"
-
+            ranking: undefined
         }
 
         student.addEventListener('click', e => studentDetails(e, data));

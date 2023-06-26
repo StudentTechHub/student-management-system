@@ -1,24 +1,24 @@
 const http = require('http');
 const fs = require('fs');
 const statesDistricts = require('../data/statesDistricts.json');
-let json;
+let json, resources;
 
 try{
     json = require('../data/students.json');
 }catch(err){
-    fs.readFileSync('./data/students.json', (err, data) => {
-        if(err) throw err;
-        try{
-            json = JSON.parse(data);
-        }catch(err){
-            console.log('students.json file is not a valid json file. Creating a new one.')
-            fs.writeFileSync('../data/students.json', JSON.stringify([]));
-        }
-    })
+    console.log('students.json file is not a valid json file. Creating a new one.')
+    fs.writeFileSync('./data/students.json', JSON.stringify({}));
+}
+
+try{
+    resources = require('../data/resources.json');
+}catch(err){
+    console.log('resources.json is not a valid json file. Creating a new one.');
+    fs.writeFileSync('./data/resources.json', JSON.stringify([]))
 }
 
 
-
+resources = resources || [];
 let students = json || {};
 let loggedOnRoll = 0;
 
@@ -54,7 +54,7 @@ const server = http.createServer(async (req, res) => {
             }else if(body.requestFor === 'addStudents'){
                 try{
                     students = {...students, ...body.students};
-                    fs.writeFile('./data/students.json', JSON.stringify(students), e => console.log("Students added to file."));
+                    fs.writeFileSync('./data/students.json', JSON.stringify(students), e => console.log("Students added to file."));
                     res.end(JSON.stringify({message: 'Students added successfully.', done: true}));
                 }catch(err){
                     res.end(JSON.stringify({message: 'Student could not be added.', done: false}));
@@ -76,23 +76,38 @@ const server = http.createServer(async (req, res) => {
                 console.log('loggedOnRoll sent');
             }else if(body.requestFor === 'studentLogin'){
                 loggedOnRoll = body.identifier[0];
-                if(typeof loggedOnRoll === 'string' && students[loggedOnRoll]){
+                if(typeof loggedOnRoll === 'string' && students[loggedOnRoll] && students[loggedOnRoll].dob === body.identifier[1]){
                     res.end(JSON.stringify({message: 'Logged in successfully', done: true}))
-                    console.log('login successful')
+                    console.log('login successful');
                 }else{
                     res.end(JSON.stringify({message: 'Login unsuccessful', done: false}))
-                    console.log('login unsuccessful, invalid rollNo');
+                    console.log('login unsuccessful');
                 }
             }else if(body.requestFor === 'logoutStudent'){
                 loggedOnRoll = 0;
                 res.end(JSON.stringify({message: 'logged out successfully', done: true}))
                 console.log('logout successful');
+            }else if(body.requestFor === 'addResource'){
+                resources.push(body.resource);
+                const fileName = resources[resources.length-1].file.name;
+
+                // There's some problem with the files being saved, having the same contents and extension name but behaving unexpectedly, quite weird huh!?
+                fs.writeFileSync('./data/resourceFiles/'+fileName, resources[resources.length-1].file.contents, e => {});
+                
+                delete resources[resources.length-1].file.contents;
+                resources[resources.length-1].fileURL = '../../../server/data/resourceFiles/'+fileName;
+                
+                fs.writeFileSync('./data/resources.json', JSON.stringify(resources), e => console.log('resource pushed in database.'));
+                
+                res.end(JSON.stringify({'message': 'resource added successfully', done:true}))
+                console.log('resource added successfully');
+            }else if(body.requestFor === 'resources'){
+                res.end(JSON.stringify(resources));
+                console.log('resources sent');
             }
             else{
                 res.destroy()
             }
-
-
         })
     }else if(req.method==='GET'){
         res.end(JSON.stringify({message: 'This is my server listening.'}));            // replace by something useful if needed
