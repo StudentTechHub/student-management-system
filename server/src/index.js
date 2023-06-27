@@ -2,32 +2,23 @@ require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
 const statesDistricts = require('../data/statesDistricts.json');
-let json, resources, teachers;
+let students, resources, teachers, announcements;
 
-try{
-    json = require('../data/students.json');
-}catch(err){
-    console.log('students.json file is not a valid json file. Creating a new one.')
-    fs.writeFileSync('./data/students.json', JSON.stringify({}));
+function isValid(name, elseData){
+    try{
+        return require('../data/'+name);
+    }catch{
+        console.log(name+' file is not a valid json file. Creating a new one.');
+        fs.writeFileSync('./data/'+name, JSON.stringify(elseData), e => {console.log('file created.')});
+    }
+    return elseValue
 }
 
-try{
-    resources = require('../data/resources.json');
-}catch(err){
-    console.log('resources.json is not a valid json file. Creating a new one.');
-    fs.writeFileSync('./data/resources.json', JSON.stringify([]))
-}
+students = isValid('students.json', {});
+resources = isValid('resources.json', []);
+teachers = isValid('teachers.json', {});
+announcements = isValid('announcements.json', []);
 
-try{
-    teachers = require('../data/teachers.json');
-}catch(err){
-    console.log('teachers.json is not a valid json file. Creaing a new one.');
-    fs.writeFileSync('./data/teachers.json', JSON.stringify({}))
-}
-
-
-resources = resources || [];
-let students = json || {};
 let loggedOnRoll = 0, loggedOnUID = '';
 
 const HOST = 'localhost';
@@ -137,6 +128,14 @@ const server = http.createServer(async (req, res) => {
             }else if(body.requestFor === 'resources'){
                 res.end(JSON.stringify(resources));
                 console.log('resources sent');
+            }else if(body.requestFor === 'addAnnouncement'){
+                announcements.unshift(body.announcement);
+                fs.writeFileSync('./data/announcements.json', JSON.stringify(announcements), e => {console.log('announcement pushed to file.')})
+                res.end(JSON.stringify({message: 'announcement added', done: true}));
+                console.log('announcement added successfully');
+            }else if(body.requestFor === 'announcements'){
+                res.end(JSON.stringify(announcements));
+                console.log('announcements sent');
             }
             else{
                 res.destroy()

@@ -18,7 +18,16 @@ async function getStudent(){
         document.querySelector('['+attr+']').innerHTML = data;
     }
 
-    [['fatherName', student.fatherName], ['rollNo', student.rollNo], ['address', student.address], ['phone', student.studentPhone], ['studentName', student.name]].forEach(elem => repInnerHTML(elem[0], elem[1]))
+    [['fatherName', student.fatherName], ['rollNo', student.rollNo], ['address', student.address], ['phone', student.studentPhone], ['studentName', student.name]].forEach(elem => repInnerHTML(elem[0], elem[1]));
 }
 
 getStudent()
+
+setTimeout(e => {
+    const toDownload = JSON.parse(new URL(window.location.href).searchParams.get('download'));
+
+    if(toDownload){
+        print();
+        close();
+    }
+}, 1000)

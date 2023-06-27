@@ -16,39 +16,67 @@ window.addEventListener('load', e => {
 
     children[0].click();
 
-    // bete ko baap ke barabar lane ke liye
-
     const containers = [document.querySelector('.background'), document.querySelector('.create')];
     containers.forEach(container => document.body.append(container));
-// Aligning Add Button
+    
+    // Aligning Add Button
 
     const add = document.querySelector('#add');
     add.style.marginTop = add.parentElement.getBoundingClientRect().height - add.getBoundingClientRect().height - 10 + 'px'
 
     add.style.marginLeft = add.parentElement.getBoundingClientRect().width - add.getBoundingClientRect().width - 10 + 'px';
 
-    // Announcement Form Aligner
+    // getting announcements from server.
+
+    const eventsContainer = document.querySelector('.event');
+    
+    fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'announcements'
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(announcement => {
+            eventsContainer.insertAdjacentHTML('afterbegin', `
+                <div class="announce">
+                    <figure><img src="../../icons/announce.png" alt=""></figure>
+                    <div>
+                        <header>
+                            <h2>${announcement.title}</h2>
+                            <div class="time">${announcement.date} - ${announcement.time}</div>
+                        </header>
+                        <div style="display: flex;align-items: center;">
+                            <div intro>${announcement.message}</div>
+                            <div tags>${[announcement.imp?'<span>important</span>':'' , ...announcement.tags.map(tag => `<span>${tag}</span>`)].join('')}</div>
+                        </div>
+                    </div>
+                </div>
+            `)
+        })
+    })
+
+    // Announcement Form
 
     const form = document.querySelector('form[announcement]');
 
     form.addEventListener('submit', e => {
-        const headers  = {
-            'Content-Type': 'application/json',
-        }
+        e.preventDefault();
+
         const inputs = ['title', 'message', 'tags', 'imp', 'date', 'time'].map(id => document.querySelector(`#${id}`));
         fetch(serverURL, {
-            method: 'POST', 
+            method: 'POST',
             body: JSON.stringify({
-                requestFor: 'announcements',
-                required: inputs.map(input => Object()[input.name] = input.value)
-            }),
-            headers: headers
-        }).then(success => success.json())
+                requestFor: 'addAnnouncement',
+                announcement: Object.fromEntries(inputs.map(input => [input.name, input.name==='imp'?input.checked:input.name==='tags'?input.value.split(',').map(tag => tag.trim()):input.value]))
+            })
+        }).then(res => res.json())
         .then(data => {
             if(data.done){
-                //successful
+                window.location.reload();
             }else{
-                //unsuccesful
+                alert('Oops! Some error occured. Please try again.');
             }
         })
     });

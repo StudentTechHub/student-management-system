@@ -24,3 +24,14 @@ async function getTeacher(){
 }
 
 getTeacher()
+
+// waiting for the image to load in 1s time.
+
+setTimeout(e => {
+    const toDownload = JSON.parse(new URL(window.location.href).searchParams.get('download'));
+
+    if(toDownload){
+        print();
+        close();
+    }
+}, 1000)

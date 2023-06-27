@@ -15,6 +15,38 @@ window.addEventListener('load', e => {
     }))
 
     children[0].click();
+
+    // getting announcements from server.
+
+    const eventsContainer = document.querySelector('.event');
+    
+    fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'announcements'
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(announcement => {
+            eventsContainer.insertAdjacentHTML('afterbegin', `
+                <div class="announce">
+                    <figure><img src="../../icons/announce.png" alt=""></figure>
+                    <div>
+                        <header>
+                            <h2>${announcement.title}</h2>
+                            <div class="time">${announcement.date} - ${announcement.time}</div>
+                        </header>
+                        <div style="display: flex;align-items: center;">
+                            <div intro>${announcement.message}</div>
+                            <div tags>${[announcement.imp?'<span>important</span>':'' , ...announcement.tags.map(tag => `<span>${tag}</span>`)].join('')}</div>
+                        </div>
+                    </div>
+                </div>
+            `)
+        })
+    })
+
     
 })
 

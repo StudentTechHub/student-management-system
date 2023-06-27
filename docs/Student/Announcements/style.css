@@ -81,4 +81,56 @@ html{
     border-radius: 28px;
     background: rgba(0, 0, 0, .2);
     margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* announcement layout */
+
+.announce figure{
+    display: grid;
+    place-items: center;
+    margin-right: 15px;
+}
+.announce figure img{
+    width: 80px;
+    height: 80px;
+}
+.announce header{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+}
+.announce header .time{
+    color: darkgray;
+}
+.announce [intro]{
+    height: 4.5em;
+    line-height: 1.5em;
+    overflow: hidden;
+    width: 70%;
+    font-size: 15px;
+    color: rgba(240,240,240);
+}
+.announce [tags]{
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    width: 30%;
+    justify-content: flex-end;
+    height: 2.5em;
+}
+.announce [tags]::-webkit-scrollbar{
+    display: none;
+}
+.announce [tags] span{
+    padding: 5px;
+    background: rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    height: 2em;
+    margin: 5px;
+    text-transform: lowercase;
+    border-radius: 5px;
+    border: 1px solid white;
 }
