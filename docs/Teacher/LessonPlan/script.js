@@ -1,19 +1,25 @@
-window.onload = e => {
-    const subjects = {
-        PHP: 75,
-        'Data Communication': 40,
-        'Digital Electronics': 65,
-        Python: 90,
-        MOAD: 80,
-        'Network Security': 85,
-        Java: 80,
-        'Microprocessors and Peripheral Devices': 60
-    }
+window.onload = async e => {
+    const teacher = await fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'teacher',
+            uid: await fetch(serverURL, {
+                method: 'POST',
+                body: JSON.stringify({
+                    requestFor: 'loggedOnTeacher'
+                })
+            }).then(res => res.json())
+        })
+    }).then(res => res.json())
+
+    const subjects = teacher.subjects;
+
     const colors = ['lightblue', 'red', 'lightgreen', 'orange', 'yellow', 'white', 'pink', 'lightgrey'];
 
-    const count = Math.floor(document.querySelector('.mainChild').getBoundingClientRect().height/64);
+    const keys = Object.keys(subjects);
+    
+    const count = keys.length;
 
-    const keys = Object.keys(subjects)
     for(let i=0;i<count;i++){
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -31,7 +37,7 @@ window.onload = e => {
             </td>
             <td><div>https://gpsonipat.ac.in/</div></td>
         `;
-        tr.style.height = document.querySelector(".mainChild").getBoundingClientRect().height/(count+1)+'px';
+        // tr.style.height = document.querySelector(".mainChild").getBoundingClientRect().height/(count+1)+'px';
         tr.lastElementChild.children[0].addEventListener('click', e => window.location.href = e.target.innerHTML);
         document.querySelector('table').append(tr);
         const progressBar = document.querySelectorAll('[progressBar]')[i];

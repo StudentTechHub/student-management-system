@@ -37,10 +37,10 @@ const template = `
         <div class="user-group">
             <div class="user-logo" style="display: flex; align-items: center;">
                 <img src="../../icons/teacher.svg" alt="logo">
-                <p style="margin-left: 10px;">Dr. Naresh Gill</p>
+                <p style="margin-left: 10px;" class='logName'>Dr. Naresh Gill</p>
             </div>
             
-            <div class="logout-btn">
+            <div class="logout-btn" onclick='logout()'>
                 Logout
             </div>
         </div>
@@ -213,7 +213,48 @@ document.body.children[0].remove()
 document.body.innerHTML = template
 document.querySelector(".main").insertAdjacentHTML("beforeend", mainContent);
 document.querySelector(".main").lastChild.classList.add("mainChild");
-[...document.querySelector('.menu-group').children].forEach(child => child.href.includes(folder) ? child.classList.add('activeDiv') : 0)
+[...document.querySelector('.menu-group').children].forEach(child => child.href.includes(folder) ? child.classList.add('activeDiv') : 0);
+
+
+function logout(){
+    fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'logoutTeacher'
+        })
+    }).then(res => res.json())
+    .then(data => {
+        data.done?'':alert('logout unsuccessful');
+    })
+}
+
+
+let uid;
+let loggedInTeacher;
+async function getTeacher() {
+    uid = await fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'loggedOnTeacher'
+        })
+    }).then(res => res.json())
+
+    if(!uid){
+        window.location.href = '../../Login/';
+    }
+
+    loggedInTeacher = await fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            requestFor: 'teacher',
+            uid: uid
+        })
+    }).then(res => res.json())
+
+    document.querySelector('.logName').innerHTML = loggedInTeacher.name;
+}
+
+getTeacher();
 
 /**
  * `popup` function creates a popup for the given information

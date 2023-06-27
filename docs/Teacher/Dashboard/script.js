@@ -1,5 +1,21 @@
-function script() {
+async function script() {
 
+  const teacher = await fetch(serverURL, {
+    method: 'POST',
+    body: JSON.stringify({
+      requestFor: 'teacher',
+      uid: await fetch(serverURL, {
+        method: 'POST',
+        body: JSON.stringify({
+          requestFor: 'loggedOnTeacher'
+        })
+      }).then(res => res.json())
+    })
+  }).then(res => res.json())
+
+  document.querySelector('.name').innerText = teacher.name;
+  document.querySelector('.branch').innerText = teacher.department;
+  document.querySelector('.designation').innerText = teacher.designation;
 
   // to scale idcard
   document.querySelector('iframe').contentWindow.document.querySelector("html").style.scale='0.75';

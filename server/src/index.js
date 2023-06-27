@@ -1,7 +1,8 @@
+require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
 const statesDistricts = require('../data/statesDistricts.json');
-let json, resources;
+let json, resources, teachers;
 
 try{
     json = require('../data/students.json');
@@ -17,10 +18,17 @@ try{
     fs.writeFileSync('./data/resources.json', JSON.stringify([]))
 }
 
+try{
+    teachers = require('../data/teachers.json');
+}catch(err){
+    console.log('teachers.json is not a valid json file. Creaing a new one.');
+    fs.writeFileSync('./data/teachers.json', JSON.stringify({}))
+}
+
 
 resources = resources || [];
 let students = json || {};
-let loggedOnRoll = 0;
+let loggedOnRoll = 0, loggedOnUID = '';
 
 const HOST = 'localhost';
 const PORT = 2080;
@@ -87,6 +95,31 @@ const server = http.createServer(async (req, res) => {
                 loggedOnRoll = 0;
                 res.end(JSON.stringify({message: 'logged out successfully', done: true}))
                 console.log('logout successful');
+            }else if(body.requestFor === 'teacherLogin'){
+                // for validation
+                let valid=false;
+
+                if(process.env[body.identifier[0]] === body.identifier[1]){
+                    valid=true;
+                }
+
+                if(valid){
+                    loggedOnUID = body.identifier[0];
+                    res.end(JSON.stringify({message: 'Logged in successfully', done: true}));
+                }else{
+                    res.end(JSON.stringify({message: 'Login unsuccessful', done: false}))
+                }
+                console.log('login successful');
+            }else if(body.requestFor === 'logoutTeacher'){
+                loggedOnUID = '';
+                res.end(JSON.stringify({message: 'logged out successfully', done: true}))
+                console.log('logout successful')
+            }else if(body.requestFor === 'teacher'){
+                res.end(JSON.stringify(teachers[body.uid]));
+                console.log('teacher sent');
+            }else if(body.requestFor === 'loggedOnTeacher'){
+                res.end(JSON.stringify(loggedOnUID));
+                console.log('loggedOnTeacher sent')
             }else if(body.requestFor === 'addResource'){
                 resources.push(body.resource);
                 const fileName = resources[resources.length-1].file.name;

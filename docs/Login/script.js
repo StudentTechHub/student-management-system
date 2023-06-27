@@ -68,13 +68,13 @@ function input(name, type, placeholder, required, ...classList){
 
 
       form.addEventListener('submit', async e => {
-        elem===student?e.preventDefault():0;
+        e.preventDefault();
 
         const res = await fetch('http://localhost:2080', {
           method: 'POST',
           body: JSON.stringify({
-            requestFor: elem===student?'studentLogin':'none',
-            identifier: [elem===student?input1.value:'none', elem===student?input2.value:'none'],
+            requestFor: elem===student?'studentLogin':'teacherLogin',
+            identifier: [input1.value, input2.value],
           })
         })
         const obj = await res.json();
@@ -82,7 +82,7 @@ function input(name, type, placeholder, required, ...classList){
         if(obj.done){
           window.location.href = form.action;
         }else{
-          alert('Invalid Roll No. or DOB');
+          alert(elem===student?'Invalid Roll No. or DOB':'Invalid User ID or Password.');
         }
       })
 

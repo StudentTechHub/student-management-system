@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/antilneeraj/SMS-P#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "http": "^0.0.1-security"
   }
 }
