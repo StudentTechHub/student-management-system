@@ -15,9 +15,7 @@
 .studentsContainer th, .studentsContainer td{
     padding: 10px;
 }
-.studentsContainer table th{
-    border-radius: 10px;
-}
+
 .studentsContainer table{
     width: 100%;
 }

@@ -24,9 +24,9 @@ window.addEventListener('load', async function(e) {
             <td>${index+1}</td>
             <td>${rollNo}</td>
             <td class="name">${students[rollNo].name}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
         `;
         studentTable.querySelector("tbody").append(tr);  
     });

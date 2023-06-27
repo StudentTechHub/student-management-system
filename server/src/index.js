@@ -92,8 +92,8 @@ const server = http.createServer(async (req, res) => {
                 const fileName = resources[resources.length-1].file.name;
 
                 // There's some problem with the files being saved, having the same contents and extension name but behaving unexpectedly, quite weird huh!?
-                fs.writeFileSync('./data/resourceFiles/'+fileName, resources[resources.length-1].file.contents, e => {});
-                
+                fs.writeFileSync('./data/resourceFiles/'+fileName, resources[resources.length-1].file.contents, e => {}); // these functions at the end are callback functions and it gives error when undefined/not specified.
+
                 delete resources[resources.length-1].file.contents;
                 resources[resources.length-1].fileURL = '../../../server/data/resourceFiles/'+fileName;
                 

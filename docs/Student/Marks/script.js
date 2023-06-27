@@ -24,9 +24,9 @@ window.addEventListener('load', async function(e) {
             <td>${index+1}</td>
             <td>${rollNo}</td>
             <td class="name">${students[rollNo].name}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
-            <td>${getRandomIntInclusive(10,25)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
+            <td>${getRandomIntInclusive(15,20)}</td>
         `;
         studentTable.querySelector("tbody").append(tr);  
     });
@@ -34,7 +34,7 @@ window.addEventListener('load', async function(e) {
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min + 1) + min);
       }
 
     addSearchListener((e) => {
