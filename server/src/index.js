@@ -1,3 +1,5 @@
+// NOTE: remember to start the server from the server directory and not from the src or any other directory. It is because the server is using the data from the ./server/data directory and not from the ./src/data directory. So, if you start the server from the src directory, it will not be able to find the data directory and will throw an error, because no data directory exists in the src directory. So, start the server from the server directory only.
+
 require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
@@ -136,6 +138,14 @@ const server = http.createServer(async (req, res) => {
             }else if(body.requestFor === 'announcements'){
                 res.end(JSON.stringify(announcements));
                 console.log('announcements sent');
+            }else if(body.requestFor === 'deleteAnnouncement'){
+                announcements.splice(body.announceID, 1);
+                fs.writeFileSync('./data/announcements.json', JSON.stringify(announcements), e => {console.log('announcement deleted.')})
+                res.end(JSON.stringify({message: 'announcement deleted', done: true}));
+            }else if(body.requestFor === 'deleteStudent'){
+                delete students[body.rollNo];
+                fs.writeFileSync('./data/students.json', JSON.stringify(students), e => {console.log('student deleted.')})
+                res.end(JSON.stringify({message: 'student deleted', done: true}));
             }
             else{
                 res.destroy()

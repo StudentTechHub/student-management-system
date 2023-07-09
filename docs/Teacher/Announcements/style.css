@@ -86,6 +86,39 @@ html{
     box-sizing: border-box;
 }
 
+
+.announce{
+    position: relative;
+}
+
+.delete{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    background: rgba(0, 0, 0, .7);
+    background-image: url('../../icons/trash.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    scale: 0;
+    transform: translate(35%, -35%);
+    transition: background .3s, scale .3s;
+}
+.delete:hover{
+    background-color: transparent;
+}
+.announce:hover .delete{
+    scale: 1;
+}
+
+
 #add {
     position: absolute;
     height: 60px;

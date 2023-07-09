@@ -151,8 +151,33 @@ window.addEventListener('load', async e => {
                     <p class="sName" style="font-family: 'Montserrat';">${studentsObj[rollNo].name.split(' ')[0]}</p>
                     <p>${rollNo}</p>
                 </div>
+                <div class='delete'></div>
             </div>`
         )
+    });
+
+
+    [...document.querySelectorAll('.student .delete')].forEach(deleteBtn => {
+        deleteBtn.addEventListener('click', async e => {
+            e.stopPropagation();
+            const res = await fetch(serverURL, {
+                method: 'POST', 
+                body: JSON.stringify({
+                    requestFor: 'deleteStudent', 
+                    rollNo: e.target.parentElement.querySelector('.sDetails p:last-child').innerText
+                })
+            })
+            const data = await res.json();
+
+            if(data.done){
+                e.target.parentElement.remove();
+            }else{
+                alert('Something went wrong, please try again later.');
+            }
+
+            console.log('the event triggered');
+
+        })
     })
 
     document.body.append(document.querySelector('.studentDetails'))

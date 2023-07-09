@@ -38,7 +38,7 @@ window.addEventListener('load', e => {
     })
     .then(res => res.json())
     .then(data => {
-        data.forEach(announcement => {
+        data.forEach((announcement, index) => {
             eventsContainer.insertAdjacentHTML('afterbegin', `
                 <div class="announce">
                     <figure><img src="../../icons/announce.png" alt=""></figure>
@@ -52,8 +52,29 @@ window.addEventListener('load', e => {
                             <div tags>${[announcement.imp?'<span>important</span>':'' , ...announcement.tags.map(tag => `<span>${tag}</span>`)].join('')}</div>
                         </div>
                     </div>
+                    <div class='delete'></div>
                 </div>
             `)
+            eventsContainer.lastElementChild.announceID = index; 
+        });
+
+        [...document.querySelectorAll('.announce .delete')].forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', async e => {
+                e.stopPropagation();
+                const res = await fetch(serverURL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        requestFor: 'deleteAnnouncement',
+                        announceID: e.target.parentElement.announceID
+                    })
+                })
+                const data = await res.json();
+                if(data.done){
+                    e.target.parentElement.remove();
+                }else{
+                    alert('Oops! Some error occured. Please try again.');
+                }
+            })
         })
     })
 
