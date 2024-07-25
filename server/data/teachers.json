@@ -4,7 +4,7 @@
         "designation": "Head of Department",
         "department": "Computer Engineering",
         "subjects": {"Digital Electronics":85, "Computer Networks":95, "Information Technology":70, "ITAI":85},
-        "phone": 8059601947,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/pankaj.png"
     },
     "naresh": {
@@ -12,7 +12,7 @@
         "designation": "Lecturer",
         "department": "Computer Engineering",
         "subjects": {"MOAD":85, "Multimedia Applications":95, "Cloud Computing":80, "Data Communication":65},
-        "phone": 9466308100,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/naresh.png"
 
     },
@@ -21,7 +21,7 @@
         "designation": "Lecturer",
         "department": "Computer Engineering",
         "subjects": {"Computer Fundamentals":75, "JAVA":40, "Python":90, "Software Engineering":55},
-        "phone": 7988816482,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/haridas.png"
 
 
@@ -31,7 +31,7 @@
         "designation": "Lecturer",
         "department": "Computer Engineering",
         "subjects": {"Programming In C":70, "Data Structure Using C":87, "Internet of Things (IoT)":80, "EVS":65},
-        "phone": 9896703580,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/virender.png"
     },
     "ashish": {
@@ -39,7 +39,7 @@
         "designation": "Lecturer",
         "department": "Computer Engineering",
         "subjects": {"Microprocessors":85, "AI":95, "Javascript":70, "Machine Learning":85},
-        "phone": 9817027282,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/ashish.png"
     },
     "sunita": {
@@ -47,7 +47,7 @@
         "designation": "Guest Faculty",
         "department": "Computer Engineering",
         "subjects": {"Operating System":85, "DBMS":95, "PHP":70, "Network Security":85},
-        "phone": 7988389032,
+        "phone": 1234567890,
         "imgurl":"../../../../server/data/assets/sunita.png"
     }
 }
